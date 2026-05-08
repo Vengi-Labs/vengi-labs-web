@@ -25,23 +25,23 @@ export default function HeroSection() {
         }}
       />
 
-      {/* 3. Mobile background — fades on both top and bottom, extends past CTA */}
+      {/* 3. Mobile background — fades top, clips below CTA, fades horizontal edges */}
       <div
         className="md:hidden absolute inset-x-0 pointer-events-none select-none overflow-hidden"
         aria-hidden="true"
         style={{
           top: "80px",
           height: "460px",
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 88%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 88%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 57%, transparent 63%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 57%, transparent 63%)",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/hero/hero-bg-mobile.png"
           alt=""
-          className="w-full h-full object-cover object-center"
-          // style={{ transform: "scale(0.95)", transformOrigin: "center" }}
+          className="w-full h-full object-cover object-center opacity-60"
+          style={{ transform: "scale(1.5)", transformOrigin: "center" }}
         />
       </div>
 
@@ -133,15 +133,15 @@ export default function HeroSection() {
           <div className="flex items-center">
             <a
               href="#models"
-              className="relative border border-white rounded-[12px] overflow-hidden group transition-all hover:shadow-md active:scale-[0.98]"
+              className="relative rounded-[12px] overflow-hidden transition-all hover:opacity-90 active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] group-hover:bg-white transition-colors pointer-events-none"
+                className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[#ff8f4c] to-[#f25d04] pointer-events-none"
               />
-              <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_16px_0px_rgba(255,255,255,0.5)] pointer-events-none" />
-              <span className="relative flex items-center justify-center px-6 py-3 text-[#030712] text-[16px] font-normal text-center whitespace-nowrap">
+              <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_8px_0px_rgba(255,255,255,0.2)] pointer-events-none" />
+              <span className="relative flex items-center justify-center px-6 py-3 text-white text-[16px] font-medium tracking-[-0.3px] text-center whitespace-nowrap">
                 Explore our models
               </span>
             </a>
