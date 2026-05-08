@@ -19,12 +19,7 @@ export default function Home() {
        * appear visually connected.
        */}
 
-      {/* Nav bar — sticky, 16 px gap from viewport top */}
-      <div className="sticky top-4 z-50 py-0">
-        <NavBar />
-      </div>
-
-      {/* Hero section sits directly below nav */}
+      <NavBar />
       <HeroSection />
 
       <OurWork />

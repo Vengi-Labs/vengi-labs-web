@@ -56,7 +56,7 @@ export default function HeroSection() {
       </div>
 
       {/* 4. Content */}
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-20 py-[120.5px] md:py-[78px] gap-[88px] md:gap-0">
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-20 py-[120.5px] md:pt-[170px] md:pb-[78px] gap-[88px] md:gap-0">
 
         {/* Mobile layer blur — node 307:161, inside content column */}
         <div
@@ -114,12 +114,12 @@ export default function HeroSection() {
           <div className="flex items-center">
             <a
               href="#models"
-              className="relative border border-white rounded-[12px] overflow-hidden"
+              className="relative border border-white rounded-[12px] overflow-hidden group transition-all hover:shadow-md active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] pointer-events-none"
+                className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] group-hover:bg-white transition-colors pointer-events-none"
               />
               <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_16px_0px_rgba(255,255,255,0.5)] pointer-events-none" />
               <span className="relative flex items-center justify-center px-6 py-3 text-[#030712] text-[16px] font-normal text-center whitespace-nowrap">
@@ -129,15 +129,16 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Video — full-width no-radius on mobile, fixed size rounded on desktop */}
-        <div className="relative shrink-0 w-full aspect-[414/297] md:w-[414px] md:h-[297px] md:aspect-auto overflow-hidden md:rounded-[20px]">
-          {/* Scribe image — visible on mobile as fallback / poster */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/hero/hero-scribe.png"
-            alt=""
-            className="md:hidden absolute inset-0 w-full h-full object-cover"
-          />
+        {/* Video — full-width on mobile, free-floating on desktop */}
+        <div
+          className="relative shrink-0 w-full aspect-[414/297] md:w-[414px] md:h-[297px] md:aspect-auto"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent), linear-gradient(to bottom, transparent, black 6%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent), linear-gradient(to bottom, transparent, black 6%, black 88%, transparent)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "destination-in",
+          }}
+        >
           <video
             src="/videos/vengi.mp4"
             poster="/images/hero/hero-scribe.png"
@@ -145,7 +146,8 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover md:rounded-[20px]"
+            style={{ mixBlendMode: "multiply" }}
           />
         </div>
       </div>
