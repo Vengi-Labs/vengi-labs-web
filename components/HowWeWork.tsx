@@ -198,7 +198,7 @@ export default function HowWeWork() {
             </p>
           </div>
           <a
-            href="https://x.com/vengilabs"
+            href="https://calendly.com/prahaladhareddyboreddy/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-white text-base font-bold overflow-hidden self-start z-10 transition-all hover:opacity-90 active:scale-[0.98]"

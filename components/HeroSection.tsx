@@ -220,9 +220,9 @@ export default function HeroSection() {
 
       {/* 5. Right floral — node 210:327 */}
       <div
-        className="absolute hidden md:flex items-center justify-center pointer-events-none select-none"
+        className="absolute flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
-        style={{ top: 0, right: 0, width: "295.01px", height: "256px" }}
+        style={{ top: 0, right: "-50px", width: "295.01px", height: "256px", opacity: 1 }}
       >
         <div style={{ transform: "scaleY(-1) rotate(180deg)" }}>
           <div className="relative" style={{ width: 295.01, height: 256 }}>
@@ -258,9 +258,9 @@ export default function HeroSection() {
 
       {/* 6. Left floral — node 210:336 */}
       <div
-        className="absolute hidden md:flex items-center justify-center pointer-events-none select-none"
+        className="absolute flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
-        style={{ bottom: "245.2px", left: "-100.51px", width: "295.01px", height: "256px" }}
+        style={{ bottom: "245.2px", left: "-100.51px", width: "295.01px", height: "256px", opacity: 1 }}
       >
         <div style={{ transform: "scaleY(-1) rotate(180deg)" }}>
           <div className="relative" style={{ width: 295.01, height: 256 }}>
@@ -279,6 +279,44 @@ export default function HeroSection() {
                 WebkitMaskImage: "url('/images/hero/hero-floral-mask-left.svg')",
                 WebkitMaskSize: "551.07px 550.067px",
                 WebkitMaskPosition: "-130.516px -116.848px",
+                WebkitMaskRepeat: "no-repeat",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/hero/hero-floral-texture.png"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ maxWidth: "none" }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 7. Bottom right floral */}
+      <div
+        className="absolute flex items-center justify-center pointer-events-none select-none"
+        aria-hidden="true"
+        style={{ bottom: "100px", right: "-50px", width: "295.01px", height: "256px", opacity: 1 }}
+      >
+        <div style={{ transform: "scaleY(-1) rotate(180deg)" }}>
+          <div className="relative" style={{ width: 295.01, height: 256 }}>
+            <div
+              className="absolute"
+              style={{
+                width: 448.609,
+                height: 560.762,
+                top: 7.31,
+                left: 32.91,
+                maskImage: "url('/images/hero/hero-floral-mask-right.svg')",
+                maskMode: "alpha",
+                maskSize: "754.07px 666.067px",
+                maskPosition: "13.484px -107.848px",
+                maskRepeat: "no-repeat",
+                WebkitMaskImage: "url('/images/hero/hero-floral-mask-right.svg')",
+                WebkitMaskSize: "754.07px 666.067px",
+                WebkitMaskPosition: "13.484px -107.848px",
                 WebkitMaskRepeat: "no-repeat",
               }}
             >

@@ -53,13 +53,20 @@ export default function NavBar() {
     >
       <nav className="backdrop-blur-[8px] bg-[rgba(252,245,239,0.75)] border border-[rgba(0,0,0,0.1)] rounded-2xl flex items-center justify-between px-[20.8px] py-[10.8px]">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 shrink-0">
-          <div className="w-11 h-11 relative shrink-0 rounded-lg overflow-hidden">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center gap-2.5 shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          <div className="w-9 h-9 relative shrink-0 rounded-lg overflow-hidden">
             <Image
               src="/images/nav/nav-logo.png"
               alt="Vengi Labs logo"
               fill
-              sizes="44px"
+              sizes="36px"
               className="object-cover"
             />
           </div>
@@ -77,14 +84,15 @@ export default function NavBar() {
               Telugu AI Research
             </span>
           </div>
-        </div>
+        </a>
 
         {/* Nav links */}
         <div className="hidden md:flex items-center gap-1">
           {[
             // TODO: Create /about page and update this link from X profile to /about
             { label: "About Us", href: "https://x.com/VengiLabs", external: true },
-            { label: "Blogs", href: "#blogs" },
+            // TODO: Uncomment when blogs page is ready
+            // { label: "Blogs", href: "#blogs" },
             // TODO: Create /models page and update this link from #our-work to /models
             { label: "Models", href: "#our-work" },
           ].map(({ label, href, external }) => (
@@ -102,8 +110,10 @@ export default function NavBar() {
 
         {/* CTA */}
         <a
-          href="#our-work"
-          className="relative border border-white rounded-[10px] overflow-hidden shrink-0 transition-all hover:opacity-90 active:scale-[0.98]"
+          href="https://calendly.com/prahaladhareddyboreddy/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative rounded-[10px] overflow-hidden shrink-0 transition-all hover:opacity-90 active:scale-[0.98]"
           style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
         >
           {/* orange gradient bg */}
@@ -114,8 +124,7 @@ export default function NavBar() {
           {/* inner glow */}
           <span className="absolute inset-0 rounded-[10px] shadow-[inset_0px_0px_16px_0px_rgba(255,255,255,0.5)] pointer-events-none" />
           <span className="relative flex items-center justify-center px-[20.8px] py-[9.8px] text-white text-[15px] font-medium tracking-[-0.3px] whitespace-nowrap">
-            <span className="hidden sm:inline">Explore our models</span>
-            <span className="sm:hidden">Explore</span>
+            Partner with us
           </span>
         </a>
       </nav>
