@@ -132,7 +132,7 @@ export default function HeroSection() {
 
           <div className="flex items-center">
             <a
-              href="#models"
+              href="#our-work"
               className="relative rounded-[12px] overflow-hidden transition-all hover:opacity-90 active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >

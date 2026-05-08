@@ -34,13 +34,16 @@ export default function NavBar() {
         {/* Nav links */}
         <div className="hidden md:flex items-center gap-1">
           {[
-            { label: "About Us", href: "#about-us" },
+            // TODO: Create /about page and update this link from X profile to /about
+            { label: "About Us", href: "https://x.com/VengiLabs", external: true },
             { label: "Blogs", href: "#blogs" },
-            { label: "Models", href: "#models" },
-          ].map(({ label, href }) => (
+            // TODO: Create /models page and update this link from #our-work to /models
+            { label: "Models", href: "#our-work" },
+          ].map(({ label, href, external }) => (
             <a
               key={label}
               href={href}
+              {...(external && { target: "_blank", rel: "noopener noreferrer" })}
               className="flex items-center justify-center px-[18px] py-2 rounded-[10px] text-[#555] text-[15px] font-normal tracking-[-0.3px] hover:bg-black/5 transition-colors whitespace-nowrap"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >
@@ -51,7 +54,7 @@ export default function NavBar() {
 
         {/* CTA */}
         <a
-          href="#models"
+          href="#our-work"
           className="relative border border-white rounded-[10px] overflow-hidden shrink-0 transition-all hover:opacity-90 active:scale-[0.98]"
           style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
         >

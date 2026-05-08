@@ -96,7 +96,7 @@ export default function HowWeWork() {
               </p>
             </div>
             <a
-              href="#models"
+              href="#our-work"
               className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-[#030712] text-base font-normal overflow-hidden self-start group transition-all hover:shadow-md active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif", fontVariationSettings: "'opsz' 14, 'wdth' 100" }}
             >
