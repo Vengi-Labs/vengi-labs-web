@@ -26,7 +26,40 @@ export default function HeroSection() {
         }}
       />
 
-      {/* 3. Layer blur — desktop only, section-level (node 210:325) */}
+      {/* 2b. Mobile bottom cream — wipes the painting bg below the CTA */}
+      <div
+        className="md:hidden absolute inset-x-0 bottom-0 pointer-events-none select-none"
+        aria-hidden="true"
+        style={{
+          height: "62%",
+          background: "linear-gradient(to bottom, transparent, #fcf5ef 30%)",
+        }}
+      />
+
+      {/* 3. Mobile floral painting — node 307:157 */}
+      <div
+        className="md:hidden absolute pointer-events-none select-none overflow-hidden"
+        aria-hidden="true"
+        style={{
+          left: "calc(50% + 245.5px)",
+          top: "calc(50% - 137.5px)",
+          width: "895px",
+          height: "447px",
+          transform: "translate(-50%, -50%)",
+          maskImage: "linear-gradient(to bottom, black 35%, transparent 65%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 35%, transparent 65%)",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero/hero-floral-mobile.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ mixBlendMode: "multiply", filter: "blur(14px)" }}
+        />
+      </div>
+
+      {/* 4. Layer blur — desktop only, section-level (node 210:325) */}
       <div
         className="hidden md:block absolute pointer-events-none select-none"
         aria-hidden="true"
