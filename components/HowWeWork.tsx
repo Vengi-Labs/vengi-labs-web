@@ -97,10 +97,10 @@ export default function HowWeWork() {
             </div>
             <a
               href="#models"
-              className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-[#030712] text-base font-normal overflow-hidden self-start"
+              className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-[#030712] text-base font-normal overflow-hidden self-start group transition-all hover:shadow-md active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif", fontVariationSettings: "'opsz' 14, 'wdth' 100" }}
             >
-              <span aria-hidden="true" className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] pointer-events-none" />
+              <span aria-hidden="true" className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] group-hover:bg-white transition-colors pointer-events-none" />
               <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_16px_0px_rgba(255,255,255,0.5)] pointer-events-none" />
               <span className="relative">Explore our models</span>
             </a>
@@ -201,7 +201,7 @@ export default function HowWeWork() {
             href="https://x.com/vengilabs"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-white text-base font-bold overflow-hidden self-start z-10"
+            className="relative inline-flex items-center justify-center border border-white rounded-[12px] px-6 py-3 text-white text-base font-bold overflow-hidden self-start z-10 transition-all hover:opacity-90 active:scale-[0.98]"
             style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
           >
             <span aria-hidden="true" className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[rgba(255,143,76,0.8)] to-[rgba(242,93,4,0.8)] pointer-events-none" />

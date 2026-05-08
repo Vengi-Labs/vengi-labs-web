@@ -3,28 +3,47 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden bg-[#fcf5ef]">
-      {/* 1. Background painting */}
-      <div className="absolute inset-0 pointer-events-none select-none">
+      {/* 1. Desktop background painting */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none select-none">
         <Image
           src="/images/hero/hero-bg.png"
           alt=""
           fill
           priority
-          className="object-cover object-center md:object-center"
+          className="object-cover object-center"
           sizes="100vw"
         />
       </div>
 
-      {/* 2. Gradient overlay (scaleY -1 matching Figma) */}
+      {/* 2. Desktop gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none select-none"
+        className="hidden md:block absolute inset-0 pointer-events-none select-none"
         aria-hidden="true"
         style={{
-          backgroundImage:
-            "linear-gradient(189.13deg, rgba(252,245,239,0) 24.57%, rgb(252,245,239) 62.16%)",
+          backgroundImage: "linear-gradient(189.13deg, rgba(252,245,239,0) 24.57%, rgb(252,245,239) 62.16%)",
           transform: "scaleY(-1)",
         }}
       />
+
+      {/* 3. Mobile background — fades top, clips below CTA, fades horizontal edges */}
+      <div
+        className="md:hidden absolute inset-x-0 pointer-events-none select-none overflow-hidden"
+        aria-hidden="true"
+        style={{
+          top: "80px",
+          height: "460px",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 57%, transparent 63%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 57%, transparent 63%)",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero/hero-bg-mobile.png"
+          alt=""
+          className="w-full h-full object-cover object-center opacity-60"
+          style={{ transform: "scale(1.5)", transformOrigin: "center" }}
+        />
+      </div>
 
       {/* 3. Layer blur — desktop only, section-level (node 210:325) */}
       <div
@@ -56,7 +75,7 @@ export default function HeroSection() {
       </div>
 
       {/* 4. Content */}
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-20 py-[120.5px] md:py-[78px] gap-[88px] md:gap-0">
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-20 py-[120.5px] md:pt-[170px] md:pb-[78px] gap-[88px] md:gap-0">
 
         {/* Mobile layer blur — node 307:161, inside content column */}
         <div
@@ -114,30 +133,31 @@ export default function HeroSection() {
           <div className="flex items-center">
             <a
               href="#models"
-              className="relative border border-white rounded-[12px] overflow-hidden"
+              className="relative rounded-[12px] overflow-hidden transition-all hover:opacity-90 active:scale-[0.98]"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-[12px] bg-[rgba(255,255,255,0.8)] pointer-events-none"
+                className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[#ff8f4c] to-[#f25d04] pointer-events-none"
               />
-              <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_16px_0px_rgba(255,255,255,0.5)] pointer-events-none" />
-              <span className="relative flex items-center justify-center px-6 py-3 text-[#030712] text-[16px] font-normal text-center whitespace-nowrap">
+              <span className="absolute inset-0 rounded-[12px] shadow-[inset_0px_0px_8px_0px_rgba(255,255,255,0.2)] pointer-events-none" />
+              <span className="relative flex items-center justify-center px-6 py-3 text-white text-[16px] font-medium tracking-[-0.3px] text-center whitespace-nowrap">
                 Explore our models
               </span>
             </a>
           </div>
         </div>
 
-        {/* Video — full-width no-radius on mobile, fixed size rounded on desktop */}
-        <div className="relative shrink-0 w-full aspect-[414/297] md:w-[414px] md:h-[297px] md:aspect-auto overflow-hidden md:rounded-[20px]">
-          {/* Scribe image — visible on mobile as fallback / poster */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/hero/hero-scribe.png"
-            alt=""
-            className="md:hidden absolute inset-0 w-full h-full object-cover"
-          />
+        {/* Video — full-width on mobile, free-floating on desktop */}
+        <div
+          className="relative shrink-0 w-full aspect-[414/297] md:w-[414px] md:h-[297px] md:aspect-auto"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent), linear-gradient(to bottom, transparent, black 6%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent), linear-gradient(to bottom, transparent, black 6%, black 88%, transparent)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "destination-in",
+          }}
+        >
           <video
             src="/videos/vengi.mp4"
             poster="/images/hero/hero-scribe.png"
@@ -145,7 +165,8 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover md:rounded-[20px]"
+            style={{ mixBlendMode: "multiply" }}
           />
         </div>
       </div>

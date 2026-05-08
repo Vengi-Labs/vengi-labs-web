@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <div className="w-full px-4 sm:px-8 md:px-12">
+    <div className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 md:px-12 pt-4">
       <nav className="backdrop-blur-[8px] bg-[rgba(252,245,239,0.75)] border border-[rgba(0,0,0,0.1)] rounded-2xl flex items-center justify-between px-[20.8px] py-[10.8px]">
         {/* Logo */}
         <div className="flex items-center gap-2.5 shrink-0">
@@ -52,7 +52,7 @@ export default function NavBar() {
         {/* CTA */}
         <a
           href="#models"
-          className="relative border border-white rounded-[10px] overflow-hidden shrink-0"
+          className="relative border border-white rounded-[10px] overflow-hidden shrink-0 transition-all hover:opacity-90 active:scale-[0.98]"
           style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
         >
           {/* orange gradient bg */}
