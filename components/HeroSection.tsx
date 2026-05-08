@@ -3,63 +3,49 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden bg-[#fcf5ef]">
-      {/* 1. Background painting */}
-      <div className="absolute inset-0 pointer-events-none select-none">
+      {/* 1. Desktop background painting */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none select-none">
         <Image
           src="/images/hero/hero-bg.png"
           alt=""
           fill
           priority
-          className="object-cover object-center md:object-center"
+          className="object-cover object-center"
           sizes="100vw"
         />
       </div>
 
-      {/* 2. Gradient overlay (scaleY -1 matching Figma) */}
+      {/* 2. Desktop gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none select-none"
+        className="hidden md:block absolute inset-0 pointer-events-none select-none"
         aria-hidden="true"
         style={{
-          backgroundImage:
-            "linear-gradient(189.13deg, rgba(252,245,239,0) 24.57%, rgb(252,245,239) 62.16%)",
+          backgroundImage: "linear-gradient(189.13deg, rgba(252,245,239,0) 24.57%, rgb(252,245,239) 62.16%)",
           transform: "scaleY(-1)",
         }}
       />
 
-      {/* 2b. Mobile bottom cream — wipes the painting bg below the CTA */}
+      {/* 3. Mobile background — fades on both top and bottom, extends past CTA */}
       <div
-        className="md:hidden absolute inset-x-0 bottom-0 pointer-events-none select-none"
+        className="md:hidden absolute inset-x-0 pointer-events-none select-none overflow-hidden"
         aria-hidden="true"
         style={{
-          height: "62%",
-          background: "linear-gradient(to bottom, transparent, #fcf5ef 30%)",
-        }}
-      />
-
-      {/* 3. Mobile floral painting — node 307:157 */}
-      <div
-        className="md:hidden absolute pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-        style={{
-          left: "calc(50% + 245.5px)",
-          top: "calc(50% - 137.5px)",
-          width: "895px",
-          height: "447px",
-          transform: "translate(-50%, -50%)",
-          maskImage: "linear-gradient(to bottom, black 35%, transparent 65%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 35%, transparent 65%)",
+          top: "80px",
+          height: "460px",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 88%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 6%, black 88%, transparent 100%)",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/hero/hero-floral-mobile.png"
+          src="/images/hero/hero-bg-mobile.png"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ mixBlendMode: "multiply", filter: "blur(14px)" }}
+          className="w-full h-full object-cover object-center"
+          // style={{ transform: "scale(0.95)", transformOrigin: "center" }}
         />
       </div>
 
-      {/* 4. Layer blur — desktop only, section-level (node 210:325) */}
+      {/* 3. Layer blur — desktop only, section-level (node 210:325) */}
       <div
         className="hidden md:block absolute pointer-events-none select-none"
         aria-hidden="true"
