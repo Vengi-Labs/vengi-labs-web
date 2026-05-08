@@ -1,6 +1,52 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Cloudinary optimized video URL
+  // w_828: 2x the display width (414px) for retina displays
+  // q_auto: automatic quality optimization
+  // f_auto: automatic format selection (WebM for Chrome, MP4 for Safari)
+  const videoSrc = "https://res.cloudinary.com/docmfqjtw/video/upload/w_828,q_auto,f_auto/vengi_cot5s8";
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    // Intersection Observer for lazy loading
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Load and play video when it comes into view
+            if (videoElement.readyState === 0) {
+              videoElement.load();
+            }
+            videoElement.play().catch(() => {
+              // Autoplay might be blocked, that's okay
+            });
+          } else {
+            // Pause video when out of view to save resources
+            videoElement.pause();
+          }
+        });
+      },
+      {
+        rootMargin: "50px", // Start loading 50px before it enters viewport
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="relative w-full overflow-hidden bg-[#fcf5ef]">
       {/* 1. Desktop background painting */}
@@ -159,9 +205,10 @@ export default function HeroSection() {
           }}
         >
           <video
-            src="/videos/vengi.mp4"
+            ref={videoRef}
+            src={videoSrc}
             poster="/images/hero/hero-scribe.png"
-            autoPlay
+            preload="none"
             muted
             loop
             playsInline

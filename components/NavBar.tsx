@@ -1,8 +1,56 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          // Always show navbar at the top
+          if (currentScrollY < 10) {
+            setIsVisible(true);
+          }
+          // Show navbar when scrolling up, hide when scrolling down
+          // Add threshold to prevent jittery behavior on mobile
+          else if (currentScrollY < lastScrollY - 5) {
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY + 5) {
+            setIsVisible(false);
+          }
+
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
+
+    // Add both scroll and touchmove for better mobile support
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchmove", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 md:px-12 pt-4">
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 md:px-12 pt-4 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <nav className="backdrop-blur-[8px] bg-[rgba(252,245,239,0.75)] border border-[rgba(0,0,0,0.1)] rounded-2xl flex items-center justify-between px-[20.8px] py-[10.8px]">
         {/* Logo */}
         <div className="flex items-center gap-2.5 shrink-0">
