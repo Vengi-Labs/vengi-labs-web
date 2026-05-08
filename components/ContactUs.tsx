@@ -57,7 +57,7 @@ export default function ContactUs() {
         </div>
 
         {/* TODO: Add email contact form here instead of just the CTA button */}
-        <
+        <a
           href="https://x.com/vengilabs"
           target="_blank"
           rel="noopener noreferrer"
