@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "figma-to-code": {
+      "source": "absolutelyskilled/absolutelyskilled",
+      "sourceType": "github",
+      "skillPath": "skills/figma-to-code/SKILL.md",
+      "computedHash": "f8deb00c17a54d477bc0a5ad3740324cf57ba6c2998b2c42ea423b320ab6cd64"
+    }
+  }
+}
