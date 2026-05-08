@@ -141,13 +141,13 @@ export default function HowWeWork() {
                 </div>
                 <div className="flex flex-1 items-start gap-2.5 min-w-0">
                   <a
-                    href="https://huggingface.co/vengi-labs"
+                    href="https://huggingface.co/vengi-ai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#030712] text-[14px] font-light tracking-[-0.2px] truncate hover:underline"
                     style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
-                    https://huggingface.co/vengi-labs
+                    https://huggingface.co/vengi-ai
                   </a>
                   <div className="relative shrink-0 w-4.5 h-4.5">
                     <img src="/images/how/how-link.svg" alt="" className="absolute inset-0 w-full h-full" style={{ maxWidth: "none" }} />
